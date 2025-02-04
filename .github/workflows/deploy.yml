@@ -33,7 +33,7 @@ jobs:
         with:
           lfs: true
 
-     - name: Install gdown
+      - name: Install gdown
         run: pip install gdown
 
       - name: Set up Node
