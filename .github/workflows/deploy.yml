@@ -37,10 +37,7 @@ jobs:
         run: pip install gdown
        
      - name: Download folder
-        run: |
-          # Get folder ID from sharing link
-          FOLDER_ID=$(echo "${{ vars.GDRIVE_FOLDER_LINK }}" | sed -n 's/.*\/folders\/\([^?]*\).*/\1/p')
-          gdown https://drive.google.com/drive/folders/$FOLDER_ID -O ./downloads --folder
+        run: FOLDER_ID=$(echo "${{ vars.GDRIVE_FOLDER_LINK }}" | sed -n 's/.*\/folders\/\([^?]*\).*/\1/p') | gdown https://drive.google.com/drive/folders/$FOLDER_ID -O ./downloads --folder
 
       - name: Set up Node
         uses: actions/setup-node@v4
