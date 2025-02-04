@@ -1,0 +1,17 @@
+import "./style.css";
+import { WebViewer } from "@rerun-io/web-viewer";
+
+// First, ensure your .rrd files are copied to dist/data during build
+const rrdFiles = [
+  "./2025-01-11-14-04-40.rrd",
+  // "./data/file2.rrd",
+  // Add paths to all your .rrd files
+];
+
+rrdFiles.forEach(file => {
+  const viewer = new WebViewer();
+  viewer.start(file, null, {
+    width: "100%",
+    height: "100%",
+  });
+});
