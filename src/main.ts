@@ -1,17 +1,17 @@
 // Import your styles and scripts
-import '/static/css/bulma.min.css'
-import '/static/css/bulma-carousel.min.css'
-import '/static/css/bulma-slider.min.css'
-import '/static/css/fontawesome.all.min.css'
-import '/static/css/index.css'
-import '/static/css/gallery.css'
+import '/css/bulma.min.css'
+import '/css/bulma-carousel.min.css'
+import '/css/bulma-slider.min.css'
+import '/css/fontawesome.all.min.css'
+import '/css/index.css'
+import '/css/gallery.css'
 
 // Import JavaScript files
-import '/static/js/fontawesome.all.min.js'
-import '/static/js/index.js'
-import '/static/js/gallery.js'
-import '/static/js/bulma-slider.min.js'
-import '/static/js/bulma-carousel.min.js'
+import '/js/fontawesome.all.min.js'
+import '/js/index.js'
+import '/js/gallery.js'
+import '/js/bulma-slider.min.js'
+import '/js/bulma-carousel.min.js'
 
 // Declare types for external libraries
 declare global {
