@@ -1,0 +1,53 @@
+.gif-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.gif-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem;
+    border: 1px solid #dbdbdb;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    /* Reset button styles */
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+    outline: none;
+}
+
+.gif-tile:hover {
+    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1);
+    transform: translateY(-2px);
+}
+
+.gif-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.gif-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.filename {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: #4a4a4a;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
