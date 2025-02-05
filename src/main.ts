@@ -1,16 +1,16 @@
 // Import your styles and scripts
-import '../static/css/bulma.min.css'
-import '../static/css/bulma-carousel.min.css'
-import '../static/css/bulma-slider.min.css'
-import '../static/css/fontawesome.all.min.css'
-import '../static/css/index.css'
-import '../static/css/gallery.css'
+import '/REASSEMBLE_page/static/css/bulma.min.css'
+import '/REASSEMBLE_page/static/css/bulma-carousel.min.css'
+import '/REASSEMBLE_page/static/css/bulma-slider.min.css'
+import '/REASSEMBLE_page/static/css/fontawesome.all.min.css'
+import '/REASSEMBLE_page/static/css/index.css'
+import '/REASSEMBLE_page/static/css/gallery.css'
 
 // Import JavaScript files
-import '../static/js/fontawesome.all.min.js'
-import '../static/js/index.js'
-import '../static/js/audioPlayer.js'
-import '../static/js/gallery.js'
+import '/REASSEMBLE_page/static/js/fontawesome.all.min.js'
+import '/REASSEMBLE_page/static/js/index.js'
+import '/REASSEMBLE_page/static/js/audioPlayer.js'
+import '/REASSEMBLE_page/static/js/gallery.js'
 
 // Declare types for external libraries
 declare global {
@@ -20,13 +20,18 @@ declare global {
     }
 }
 
-// Function to load external script
+// Function to load external script with correct path
 function loadScript(url: string): Promise<void> {
+    // Add repository name to path
+    const fullUrl = `/REASSEMBLE_page${url}`;
     return new Promise((resolve, reject) => {
         const script = document.createElement('script');
-        script.src = url;
+        script.src = fullUrl;
         script.onload = () => resolve();
-        script.onerror = () => reject(new Error(`Failed to load script: ${url}`));
+        script.onerror = (e) => {
+            console.error(`Failed to load script: ${fullUrl}`, e);
+            reject(new Error(`Failed to load script: ${fullUrl}`));
+        };
         document.body.appendChild(script);
     });
 }
@@ -37,7 +42,7 @@ window.addEventListener('load', async () => {
 
     // Load Bulma Carousel script dynamically
     try {
-        await loadScript('../static/js/bulma-carousel.min.js');
+        await loadScript('/static/js/bulma-carousel.min.js');
         console.log('Bulma Carousel loaded');
         
         // Initialize carousels if they exist
@@ -57,13 +62,13 @@ window.addEventListener('load', async () => {
         const gifs = [
             {
                 filename: '2025-01-11-14-04-40',
-                path: '../static/videos/preview1.gif',
-                targetUrl: `viewer.html?file=2025-01-11-14-04-40.rrd`
+                path: '/REASSEMBLE_page/2025-01-11-14-04-40.gif',
+                targetUrl: `/REASSEMBLE_page/viewer.html?file=2025-01-11-14-04-40.rrd`
             },
             {
                 filename: '2025-01-09-15-27-49',
-                path: '../static/videos/preview2.gif',
-                targetUrl: `viewer.html?file=2025-01-09-15-27-49.rrd`
+                path: '/REASSEMBLE_page/2025-01-09-15-27-49.gif',
+                targetUrl: `/REASSEMBLE_page/viewer.html?file=2025-01-09-15-27-49.rrd`
             }
         ];
 
