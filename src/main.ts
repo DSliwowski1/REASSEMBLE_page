@@ -14,7 +14,24 @@ import './static/js/index.js'
 import './static/js/audioPlayer.js'
 import './static/js/gallery.js'
 
-// Initialize the GIF gallery
+// Declare types for external libraries
+declare global {
+  interface Window {
+    bulmaCarousel: {
+      attach: (selector: string, options: any) => any;
+    };
+  }
+  class GifGallery {
+    constructor(containerId: string);
+    loadGifs(gifs: Array<{
+      filename: string;
+      path: string;
+      targetUrl: string;
+    }>): void;
+  }
+}
+
+// Initialize everything after DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize GIF Gallery
   const gallery = new GifGallery('gifGallery');
@@ -32,28 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
   gallery.loadGifs(gifs);
 
-  // Initialize Bulma Carousel if you're using it
-  const carousels = bulmaCarousel.attach('.carousel', {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: true,
-    autoplay: true
-  });
-
-  // Any other initializations you need
+  // Initialize Bulma Carousel
+  if (window.bulmaCarousel) {
+    window.bulmaCarousel.attach('.carousel', {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true,
+      autoplay: true
+    });
+  }
 });
-
-// Declare types for external libraries to avoid TypeScript errors
-declare global {
-  interface Window {
-    bulmaCarousel: any;
-  }
-  class GifGallery {
-    constructor(containerId: string);
-    loadGifs(gifs: Array<{
-      filename: string;
-      path: string;
-      targetUrl: string;
-    }>): void;
-  }
-}
