@@ -9,8 +9,9 @@ const rrdFiles = [
   // Add paths to all your .rrd files
 ];
 
+const viewer = new WebViewer();
+
 rrdFiles.forEach(file => {
-  const viewer = new WebViewer();
   viewer.start(file, null, {
     width: "100%",
     height: "100%",
