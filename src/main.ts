@@ -10,8 +10,8 @@ import './css/gallery.css'
 import './js/fontawesome.all.min.js'
 import './js/index.js'
 import './js/gallery.js'
-// import './js/bulma-slider.min.js'
-// import './js/bulma-carousel.min.js'
+import './js/bulma-slider.min.js'
+import './js/bulma-carousel.min.js'
 
 // import "/src/viewer.ts"
 
