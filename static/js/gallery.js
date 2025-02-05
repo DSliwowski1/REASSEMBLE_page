@@ -1,14 +1,17 @@
+// gallery.js
 class GifGallery {
     constructor(containerId) {
         const element = document.getElementById(containerId);
         if (!element) {
-            throw new Error(`Container with id ${containerId} not found`);
+            console.error(`Container with id ${containerId} not found`);
+            return;
         }
         this.container = element;
         this.container.classList.add('gif-gallery');
     }
 
     loadGifs(gifs) {
+        if (!this.container) return;
         this.container.innerHTML = '';
         
         gifs.forEach(gif => {
@@ -41,3 +44,6 @@ class GifGallery {
         return tileElement;
     }
 }
+
+// Make the class available globally
+window.GifGallery = GifGallery;

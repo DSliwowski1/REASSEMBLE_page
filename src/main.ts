@@ -1,4 +1,4 @@
-// Import all CSS files
+// Import your styles and scripts
 import '../static/css/bulma.min.css'
 import '../static/css/bulma-carousel.min.css'
 import '../static/css/bulma-slider.min.css'
@@ -16,57 +16,48 @@ import '../static/js/gallery.js'
 
 // Declare types for external libraries
 declare global {
-  interface Window {
-    bulmaCarousel: {
-      attach: (selector: string, options: any) => any;
-    };
-  }
-  class GifGallery {
-    constructor(containerId: string);
-    loadGifs(gifs: Array<{
-      filename: string;
-      path: string;
-      targetUrl: string;
-    }>): void;
-  }
+    interface Window {
+        GifGallery: any;
+        bulmaCarousel: {
+            attach: (selector: string, options: any) => any;
+        };
+    }
 }
 
-// Wait for both DOM and all resources to be loaded
+// Initialize everything after DOM is loaded
 window.addEventListener('load', () => {
-  try {
-    // Initialize GIF Gallery if the element exists
+    console.log('Initializing gallery...'); // Debug log
+
+    // Initialize GIF Gallery
     const galleryElement = document.getElementById('gifGallery');
-    if (galleryElement) {
-      const gallery = new GifGallery('gifGallery');
-      const gifs = [
-        {
-            filename: '2025-01-11-14-04-40',
-            path: './2025-01-11-14-04-40.gif',  // Path to your preview GIF
-            targetUrl: `viewer.html?file=2025-01-11-14-04-40.rrd`
-        },
-        {
-            filename: '2025-01-09-15-27-49',
-            path: './2025-01-09-15-27-49.gif',  // Path to your preview GIF
-            targetUrl: `viewer.html?file=2025-01-09-15-27-49.rrd`
-        }
-    ];
-      gallery.loadGifs(gifs);
+    if (!galleryElement) {
+        console.error('Gallery element not found!');
+        return;
     }
 
-    // Initialize Bulma Carousel if it exists
-    const carouselElement = document.querySelector('.carousel');
-    if (carouselElement && window.bulmaCarousel) {
-      window.bulmaCarousel.attach('.carousel', {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
-        autoplay: true
-      });
+    try {
+        const gallery = new window.GifGallery('gifGallery');
+        const gifs = [
+            {
+                filename: '2025-01-11-14-04-40',
+                path: './2025-01-11-14-04-40.gif', // Update path to your actual preview GIF
+                targetUrl: `viewer.html?file=2025-01-11-14-04-40.rrd`
+            },
+            {
+                filename: '2025-01-09-15-27-49',
+                path: './2025-01-11-14-04-40.gif', // Update path to your actual preview GIF
+                targetUrl: `viewer.html?file=2025-01-09-15-27-49.rrd`
+            }
+        ];
+
+        console.log('Loading gifs:', gifs); // Debug log
+        gallery.loadGifs(gifs);
+    } catch (error) {
+        console.error('Error initializing gallery:', error);
     }
-  } catch (error) {
-    console.error('Error during initialization:', error);
-  }
+
+    // Initialize other components as needed
 });
 
-// Export any functions or variables that need to be accessible
-export {}
+// Export empty object to make TypeScript happy
+export {};
