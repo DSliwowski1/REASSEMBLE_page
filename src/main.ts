@@ -1,16 +1,16 @@
 // Import your styles and scripts
-import '/REASSEMBLE_page/static/css/bulma.min.css'
-import '/REASSEMBLE_page/static/css/bulma-carousel.min.css'
-import '/REASSEMBLE_page/static/css/bulma-slider.min.css'
-import '/REASSEMBLE_page/static/css/fontawesome.all.min.css'
-import '/REASSEMBLE_page/static/css/index.css'
-import '/REASSEMBLE_page/static/css/gallery.css'
+import '../static/css/bulma.min.css'
+import '../static/css/bulma-carousel.min.css'
+import '../static/css/bulma-slider.min.css'
+import '../static/css/fontawesome.all.min.css'
+import '../static/css/index.css'
+import '../static/css/gallery.css'
 
 // Import JavaScript files
-import '/REASSEMBLE_page/static/js/fontawesome.all.min.js'
-import '/REASSEMBLE_page/static/js/index.js'
-import '/REASSEMBLE_page/static/js/audioPlayer.js'
-import '/REASSEMBLE_page/static/js/gallery.js'
+import '../static/js/fontawesome.all.min.js'
+import '../static/js/index.js'
+import '../static/js/audioPlayer.js'
+import '../static/js/gallery.js'
 
 // Declare types for external libraries
 declare global {
@@ -20,10 +20,16 @@ declare global {
     }
 }
 
-// Function to load external script with correct path
+// Function to get base URL for GitHub Pages
+function getBaseUrl(): string {
+    return import.meta.env.PROD ? '/REASSEMBLE_page' : '';
+}
+
+// Function to load external script
 function loadScript(url: string): Promise<void> {
-    // Add repository name to path
-    const fullUrl = `/REASSEMBLE_page${url}`;
+    const baseUrl = getBaseUrl();
+    const fullUrl = `${baseUrl}${url}`;
+    
     return new Promise((resolve, reject) => {
         const script = document.createElement('script');
         script.src = fullUrl;
@@ -39,6 +45,7 @@ function loadScript(url: string): Promise<void> {
 // Initialize everything after DOM is loaded
 window.addEventListener('load', async () => {
     console.log('Initializing components...');
+    const baseUrl = getBaseUrl();
 
     // Load Bulma Carousel script dynamically
     try {
@@ -62,13 +69,13 @@ window.addEventListener('load', async () => {
         const gifs = [
             {
                 filename: '2025-01-11-14-04-40',
-                path: '/REASSEMBLE_page/2025-01-11-14-04-40.gif',
-                targetUrl: `/REASSEMBLE_page/viewer.html?file=2025-01-11-14-04-40.rrd`
+                path: `${baseUrl}/2025-01-09-15-27-49.gif`,
+                targetUrl: `${baseUrl}/viewer.html?file=2025-01-11-14-04-40.rrd`
             },
             {
                 filename: '2025-01-09-15-27-49',
-                path: '/REASSEMBLE_page/2025-01-09-15-27-49.gif',
-                targetUrl: `/REASSEMBLE_page/viewer.html?file=2025-01-09-15-27-49.rrd`
+                path: `${baseUrl}/2025-01-09-15-27-49.gif`,
+                targetUrl: `${baseUrl}/viewer.html?file=2025-01-09-15-27-49.rrd`
             }
         ];
 
