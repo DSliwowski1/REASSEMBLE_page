@@ -31,31 +31,42 @@ declare global {
   }
 }
 
-// Initialize everything after DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize GIF Gallery
-  const gallery = new GifGallery('gifGallery');
-  const gifs = [
-    {
-      filename: 'Sample 1',
-      path: '/static/videos/sample1.gif',  // Update with your actual path
-      targetUrl: 'viewer.html?sample=1'    // Update with your actual target URL
-    },
-    {
-      filename: 'Sample 2',
-      path: '/static/videos/sample2.gif',  // Update with your actual path
-      targetUrl: 'viewer.html?sample=2'    // Update with your actual target URL
+// Wait for both DOM and all resources to be loaded
+window.addEventListener('load', () => {
+  try {
+    // Initialize GIF Gallery if the element exists
+    const galleryElement = document.getElementById('gifGallery');
+    if (galleryElement) {
+      const gallery = new GifGallery('gifGallery');
+      const gifs = [
+        {
+          filename: 'Sample 1',
+          path: '/static/videos/sample1.gif',
+          targetUrl: 'viewer.html?sample=1'
+        },
+        {
+          filename: 'Sample 2',
+          path: '/static/videos/sample2.gif',
+          targetUrl: 'viewer.html?sample=2'
+        }
+      ];
+      gallery.loadGifs(gifs);
     }
-  ];
-  gallery.loadGifs(gifs);
 
-  // Initialize Bulma Carousel
-  if (window.bulmaCarousel) {
-    window.bulmaCarousel.attach('.carousel', {
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      infinite: true,
-      autoplay: true
-    });
+    // Initialize Bulma Carousel if it exists
+    const carouselElement = document.querySelector('.carousel');
+    if (carouselElement && window.bulmaCarousel) {
+      window.bulmaCarousel.attach('.carousel', {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        autoplay: true
+      });
+    }
+  } catch (error) {
+    console.error('Error during initialization:', error);
   }
 });
+
+// Export any functions or variables that need to be accessible
+export {}
