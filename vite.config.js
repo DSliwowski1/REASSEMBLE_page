@@ -25,8 +25,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: './', // This is important for GitHub Pages
-  publicDir: 'static',
+  base: process.env.NODE_ENV === 'production' ? '/REASSEMBLE_page/' : '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
