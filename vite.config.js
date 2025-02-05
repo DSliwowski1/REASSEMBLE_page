@@ -7,6 +7,7 @@ const config = {
   // optimizeDeps: {
   //   exclude: process.env.NODE_ENV === "production" ? [] : ["@rerun-io/web-viewer"],
   // },
+  publicDir: 'static',
   server: {
     port: 5173,
   },

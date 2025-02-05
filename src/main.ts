@@ -70,7 +70,7 @@ window.addEventListener('load', async () => {
         const gifs = [
             {
                 filename: '2025-01-11-14-04-40',
-                path: `${baseUrl}/2025-01-09-15-27-49.gif`,
+                path: `${baseUrl}/2025-01-11-14-04-40.gif`,
                 targetUrl: `${baseUrl}/viewer.html?file=2025-01-11-14-04-40.rrd`
             },
             {
