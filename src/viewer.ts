@@ -2,7 +2,7 @@ import "./style.css";
 import { WebViewer } from "@rerun-io/web-viewer";
 
 // Function to get URL parameters
-function getUrlParameter(name) {
+function getUrlParameter(name: string): string | null {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }

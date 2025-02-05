@@ -4,9 +4,9 @@ import topLevelAwait from "vite-plugin-top-level-await";
 /** @type {import("vite").UserConfig} */
 const config = {
   plugins: [wasm(), topLevelAwait()],
-  // optimizeDeps: {
-  //   exclude: process.env.NODE_ENV === "production" ? [] : ["@rerun-io/web-viewer"],
-  // },
+  optimizeDeps: {
+    exclude: process.env.NODE_ENV === "production" ? [] : ["@rerun-io/web-viewer"],
+  },
   publicDir: 'static',
   server: {
     port: 5173,
