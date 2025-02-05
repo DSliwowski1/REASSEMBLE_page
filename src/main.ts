@@ -40,16 +40,16 @@ window.addEventListener('load', () => {
       const gallery = new GifGallery('gifGallery');
       const gifs = [
         {
-          filename: 'Sample 1',
-          path: '/static/videos/sample1.gif',
-          targetUrl: 'viewer.html?sample=1'
+            filename: '2025-01-11-14-04-40',
+            path: './2025-01-11-14-04-40.gif',  // Path to your preview GIF
+            targetUrl: `viewer.html?file=2025-01-11-14-04-40.rrd`
         },
         {
-          filename: 'Sample 2',
-          path: '/static/videos/sample2.gif',
-          targetUrl: 'viewer.html?sample=2'
+            filename: '2025-01-09-15-27-49',
+            path: './2025-01-09-15-27-49.gif',  // Path to your preview GIF
+            targetUrl: `viewer.html?file=2025-01-09-15-27-49.rrd`
         }
-      ];
+    ];
       gallery.loadGifs(gifs);
     }
 
