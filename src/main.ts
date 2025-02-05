@@ -1,17 +1,17 @@
 // Import your styles and scripts
-import '/css/bulma.min.css'
-import '/css/bulma-carousel.min.css'
-import '/css/bulma-slider.min.css'
-import '/css/fontawesome.all.min.css'
-import '/css/index.css'
-import '/css/gallery.css'
+import './css/bulma.min.css'
+import './css/bulma-carousel.min.css'
+import './css/bulma-slider.min.css'
+import './css/fontawesome.all.min.css'
+import './css/index.css'
+import './css/gallery.css'
 
 // Import JavaScript files
-import '/js/fontawesome.all.min.js'
-import '/js/index.js'
-import '/js/gallery.js'
-import '/js/bulma-slider.min.js'
-import '/js/bulma-carousel.min.js'
+import './js/fontawesome.all.min.js'
+import './js/index.js'
+import './js/gallery.js'
+import './js/bulma-slider.min.js'
+import './js/bulma-carousel.min.js'
 
 // Declare types for external libraries
 declare global {
@@ -50,7 +50,7 @@ window.addEventListener('load', async () => {
 
     // Load Bulma Carousel script dynamically
     try {
-        await loadScript('/static/js/bulma-carousel.min.js');
+        await loadScript('/js/bulma-carousel.min.js');
         console.log('Bulma Carousel loaded');
         
         // Initialize carousels if they exist
