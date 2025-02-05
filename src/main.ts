@@ -27,21 +27,21 @@ function getBaseUrl(): string {
 }
 
 // Function to load external script
-function loadScript(url: string): Promise<void> {
-    const baseUrl = getBaseUrl();
-    const fullUrl = `${baseUrl}${url}`;
+// function loadScript(url: string): Promise<void> {
+//     const baseUrl = getBaseUrl();
+//     const fullUrl = `${baseUrl}${url}`;
     
-    return new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        script.src = fullUrl;
-        script.onload = () => resolve();
-        script.onerror = (e) => {
-            console.error(`Failed to load script: ${fullUrl}`, e);
-            reject(new Error(`Failed to load script: ${fullUrl}`));
-        };
-        document.body.appendChild(script);
-    });
-}
+//     return new Promise((resolve, reject) => {
+//         const script = document.createElement('script');
+//         script.src = fullUrl;
+//         script.onload = () => resolve();
+//         script.onerror = (e) => {
+//             console.error(`Failed to load script: ${fullUrl}`, e);
+//             reject(new Error(`Failed to load script: ${fullUrl}`));
+//         };
+//         document.body.appendChild(script);
+//     });
+// }
 
 // Initialize everything after DOM is loaded
 window.addEventListener('load', async () => {
