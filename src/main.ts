@@ -10,14 +10,14 @@ import './css/gallery.css'
 import './js/fontawesome.all.min.js'
 import './js/index.js'
 import './js/gallery.js'
-import './js/bulma-slider.min.js'
-import './js/bulma-carousel.min.js'
+// import './js/bulma-slider.min.js'
+// import './js/bulma-carousel.min.js'
 
 // Declare types for external libraries
 declare global {
     interface Window {
         GifGallery: any;
-        bulmaCarousel: any;
+        // bulmaCarousel: any;
     }
 }
 
@@ -48,21 +48,21 @@ window.addEventListener('load', async () => {
     console.log('Initializing components...');
     const baseUrl = getBaseUrl();
 
-    // Load Bulma Carousel script dynamically
-    try {
-        await loadScript('/js/bulma-carousel.min.js');
-        console.log('Bulma Carousel loaded');
+    // // Load Bulma Carousel script dynamically
+    // try {
+    //     // await loadScript('/js/bulma-carousel.min.js');
+    //     // console.log('Bulma Carousel loaded');
         
-        // Initialize carousels if they exist
-        if (window.bulmaCarousel) {
-            window.bulmaCarousel.attach('.carousel', {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            });
-        }
-    } catch (error) {
-        console.error('Error loading Bulma Carousel:', error);
-    }
+    //     // Initialize carousels if they exist
+    //     if (window.bulmaCarousel) {
+    //         window.bulmaCarousel.attach('.carousel', {
+    //             slidesToShow: 1,
+    //             slidesToScroll: 1
+    //         });
+    //     }
+    // } catch (error) {
+    //     console.error('Error loading Bulma Carousel:', error);
+    // }
 
     // Initialize GIF Gallery
     try {

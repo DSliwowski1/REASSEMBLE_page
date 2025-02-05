@@ -2,7 +2,7 @@ import "./style.css";
 import { WebViewer } from "@rerun-io/web-viewer";
 
 // Function to get URL parameters
-function getUrlParameter(name: string): string | null {
+function getUrlParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
@@ -32,10 +32,10 @@ async function initializeViewer() {
 document.addEventListener('DOMContentLoaded', initializeViewer);
 
 // For development/testing, you can keep a list of available files
-const availableFiles = [
-    "2025-01-11-14-04-40.rrd",
-    "2025-01-09-15-27-49.rrd",
-    // Add more files as needed
-];
+// const availableFiles = [
+//     "2025-01-11-14-04-40.rrd",
+//     "2025-01-09-15-27-49.rrd",
+//     // Add more files as needed
+// ];
 
-export { availableFiles };
+// export { availableFiles };

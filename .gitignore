@@ -1,3 +1,4 @@
 public/*.mp4
 public/*.rrd
 node_modules
+dist/
