@@ -16,7 +16,6 @@
     cursor: pointer;
     transition: all 0.2s;
     width: 100%;
-    /* Reset button styles */
     appearance: none;
     -webkit-appearance: none;
     margin: 0;
