@@ -7,14 +7,20 @@ const config = {
   optimizeDeps: {
     exclude: process.env.NODE_ENV === "production" ? [] : ["@rerun-io/web-viewer"],
   },
-  publicDir: 'static',
+  // publicDir: 'static',
   server: {
     port: 5173,
   },
   build: {
     outDir: 'dist',
-    copyPublicDir: true
-  }
+    copyPublicDir: true,
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        viewer: 'viewer.html'
+      }
+    }
+  },
 };
 
 if ("REPOSITORY" in process.env) {

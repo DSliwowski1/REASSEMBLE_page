@@ -13,6 +13,8 @@ import './js/gallery.js'
 // import './js/bulma-slider.min.js'
 // import './js/bulma-carousel.min.js'
 
+// import "/src/viewer.ts"
+
 // Declare types for external libraries
 declare global {
     interface Window {
