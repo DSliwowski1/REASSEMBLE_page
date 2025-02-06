@@ -1,5 +1,6 @@
 import wasm from "vite-plugin-wasm";
 import topLevelAwait from "vite-plugin-top-level-await";
+import path from 'path';
 
 /** @type {import("vite").UserConfig} */
 const config = {
@@ -21,6 +22,12 @@ const config = {
       }
     }
   },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      'path': 'path-browserify'
+    }
+  }
 };
 
 if ("REPOSITORY" in process.env) {

@@ -13,6 +13,40 @@ import './js/gallery.js'
 import './js/bulma-slider.min.js'
 import './js/bulma-carousel.min.js'
 
+import { createScatterPlot } from './ScatterPlot';
+import 'papaparse';
+import './css/scatter-plot-styles.css';
+
+
+// Setup function to be called when the DOM is ready
+async function initScatterPlot() {
+    const canvasElement = document.getElementById('scatterPlot') as HTMLCanvasElement;
+    
+    // Set canvas dimensions to match its display size
+    canvasElement.width = canvasElement.offsetWidth;
+    canvasElement.height = canvasElement.offsetHeight;
+
+    const canvasId = 'scatterPlot';
+    const csvPath = '/plots/positions.csv';
+
+    try {
+        const response = await fetch(csvPath);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch CSV: ${response.statusText}`);
+        }
+        const csvText = await response.text();
+
+        // Convert CSV text to a File object
+        const csvFile = new File([csvText], 'your-data.csv', { type: 'text/csv' });
+
+        // Pass the File object to the scatter plot function
+        await createScatterPlot(canvasId, csvFile);
+    } catch (error) {
+        console.error('Failed to create scatter plot:', error);
+    }
+}
+
+
 // import "/src/viewer.ts"
 
 // Declare types for external libraries
@@ -87,7 +121,16 @@ window.addEventListener('load', async () => {
     } catch (error) {
         console.error('Error initializing gallery:', error);
     }
+
+    initScatterPlot()
 });
+
+// // Ensure DOM is fully loaded before initializing
+// if (document.readyState === 'loading') {
+//     document.addEventListener('DOMContentLoaded', initScatterPlot);
+// } else {
+//     initScatterPlot();
+// }
 
 // Export empty object to make TypeScript happy
 export {};
