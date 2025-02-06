@@ -47,6 +47,10 @@ const COLOR_MAP: { [key in SimplifiedAction]: string } = {
   'Remove': 'var(--color-remove)'
 };
 
+function getBaseUrl(): string {
+    return import.meta.env.PROD ? '/REASSEMBLE_page' : '';
+}
+
 // Custom tooltip content component
 const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
@@ -92,8 +96,9 @@ const ScatterPlotVisualization: React.FC<ScatterPlotVisualizationProps> = ({
 
     const fetchData = async () => {
       try {
+        const baseUrl = getBaseUrl();
         console.log('Attempting to fetch CSV data...');
-        const response = await fetch('/plots/positions.csv');
+        const response = await fetch(`${baseUrl}/plots/positions.csv`);
         const fileContent = await response.text();
         
         const results = Papa.parse<CSVRow>(fileContent, {
