@@ -224,246 +224,6 @@
   </section>
 
 
-    <!-- <section class="section hero is-light">
-      <div class="container is-max-desktop">
-        
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-
-            <h2 class="title is-3">Dataset Visualization</h2>
-            <div class="content has-text-justified">
-              <p>
-                We develop a visualization tool based on the ReRun viewer to display synchronized data from the REASSEMBLE dataset. To improve visualization speed, we downsample the recorded data both spatially (external wrist camera images by a factor of 9, event camera videos by a factor of 4) and temporally (audio by a factor of 2000, proprioceptive data by a factor of 200). Currently, we showcase two samples from the dataset, with plans to expand the selection upon the full dataset’s release.
-              </p>
-            </div>
-            
-          </div>
-        </div>
-        
-      </div>
-    </section> -->
-
-    <!-- <section class="hero is-small">
-        <div class="container is-max-desktop">
-          <div class="hero-body">
-            <div class="container">
-              <div class="content has-text-justified">
-                <div id="gifGallery"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-      </section> -->
-
-    <section class="section hero is-light">
-      <div class="container is-max-desktop">
-        
-        <div class="columns is-centered has-text-centered">
-          <div class="column">
-    
-            <h2 class="title is-2">Data Collection Setup</h2>
-    
-          </div>
-        </div>
-        
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container is-max-widescreen">
-        <div class="rows">
-          <div class="rows is-centered ">
-              <span style="font-size: 140%">
-                <br>
-                We collect a comprehensive range of sensory data for task demonstrations, including multi-view RGB video from two external HAMA C-600 Pro webcams and a wrist-mounted Intel RealSense D435i, as well as proprioceptive data such as joint positions, velocities, end-effector position, and gripper width. Audio is captured by three microphones, including an OSA K1T wireless mic on the robot's gripper. Interaction forces and torques are measured using a wrist-mounted 6-axis AIDIN ROBOTICS AFT200-D80-C force-torque sensor. The dataset also features an event camera, providing high-speed, low-latency motion information. For precise camera localization, we use a motion capture system with custom 3D-printed brackets and reflective markers on both the cameras and the robot's base.
-              </span>
-                
-              <div class="column is-centered has-text-centered">
-                <img src="figures/sesor_v2-1.png" alt="Data collection setup" />
-              </div>
-            </div>
-          </div>
-      </div>
-    </section>
-
-    <!-- <section class="section hero is-light">
-      <div class="container is-max-desktop">
-        
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-
-            <h2 class="title is-3">Date Collection Setup</h2>
-            <div class="content has-text-justified">
-              <p>
-                We collect a comprehensive range of sensory data for task demonstrations, including multi-view RGB video from two external HAMA C-600 Pro webcams and a wrist-mounted Intel RealSense D435i, as well as proprioceptive data such as joint positions, velocities, end-effector position, and gripper width. Audio is captured by three microphones, including an OSA K1T wireless mic on the robot's gripper. Interaction forces and torques are measured using a wrist-mounted 6-axis AIDIN ROBOTICS AFT200-D80-C force-torque sensor. The dataset also features an event camera, providing high-speed, low-latency motion information. For precise camera localization, we use a motion capture system with custom 3D-printed brackets and reflective markers on both the cameras and the robot's base.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="hero is-small">
-      <div class="hero-body">
-        <div class="container">
-
-          <div class="column is-centered has-text-centered">
-            <img src="figures/sesor_v2-1.png" alt="" />
-          </div>
-        </div>
-      </div>
-      </div>
-    </section> -->
-
-    <section class="section hero is-light">
-      <div class="container is-max-desktop">
-        
-        <div class="columns is-centered has-text-centered">
-          <div class="column">
-    
-            <h2 class="title is-2">Dataset Statistics</h2>
-    
-            <!-- Scatter plot container
-            <div style="display: flex; justify-content: center; align-items: center;">
-              <div id="scatterPlot"></div>
-            </div> -->
-    
-          </div>
-        </div>
-        
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container is-max-widescreen">
-        <div class="rows">
-          <div class="rows is-centered ">
-              <div class="row is-full-width">
-                  <h2 class="title is-2"><span class="dvima">Action Distribution</span></h2>
-              </div>
-              <span style="font-size: 140%">
-                <br>
-                The REASSEMBLE dataset includes 68 action-object pairs, or 69 with the "Idle" action, covering four actions and 17 objects. To ensure balanced performance, it contains a relatively equal number of demonstrations for each action, with a minimum of 55 for "Remove square peg 2" and a maximum of 86 for "Pick USB" and "Insert BNC." This distribution reduces performance bias toward more frequently occurring actions and supports diverse, balanced learning for downstream models.
-              </span>
-                
-              <div class="column is-centered has-text-centered">
-                <img src="figures/dataset_total.png" alt="Data collection setup" />
-              </div>
-            </div>
-          </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container is-max-widescreen">
-        <div class="rows">
-          <div class="rows is-centered ">
-              <div class="row is-full-width">
-                  <h2 class="title is-2"><span class="dvima">Action Demonstration Success Rate</span></h2>
-              </div>
-              <span style="font-size: 140%">
-                <br>
-                The REASSEMBLE dataset contains demonstrations and labels for both successful and unsuccessful action executions. This allows learning success detectors and implementing execution monitoring pipelines.
-
-                The number of failed demonstrations per action reflects task difficulty, with complex motions leading to more failures. The "Insert" action has the highest failure rate due to its multi-step process, especially for BNC and bolt 4, which require precise alignment and rotation. Ethernet and USB insertions also fail frequently due to their directional plugs and edge placement on the task board. "Pick" failures occur when the gripper misses or drops the object, while "Remove" failures result from misalignment causing objects to jam. In contrast, "Place" has the fewest failures, though slips leading to obstruction are classified as failures.
-              </span>
-                
-              <div class="column is-centered has-text-centered">
-                <img src="figures/dataset_s_vs_us.png" alt="Data collection setup" />
-              </div>
-            </div>
-          </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container is-max-widescreen">
-          <div class="rows">
-              <div class="rows is-centered ">
-                  <div class="row is-full-width">
-                      <h2 class="title is-2"><span class="dvima">Interaction Point Diversity</span></h2>
-                  </div>
-                  <br>
-                  <div class="columns">
-                      <div class="column has-text-centered">
-                        <div style="display: flex; justify-content: center; align-items: center;">
-                          <div id="scatterPlot"></div>
-                        </div>
-                          <!-- <img src="figures/droid_setup.png" class="interpolation-image" alt=""
-                          style="display: block; width: 80%; margin-left: auto; margin-right: auto" /> -->
-                      </div>    
-                  <!-- <br> -->
-                  <div class="column">
-                  <span style="font-size: 140%">
-                      <br>
-                      Increasing the diversity in the interaction points of actions within a dataset enhances generalization and performance on downstream tasks. To achieve high diversity in our data, we instructed the operator to randomize the board and object poses for each trial during data collection. The approximate interaction point of all 4,551 demonstrations was determined by sampling the final end-effector position of each trial. The robot starts at the origin, facing the positive x-axis, with most objects and the board placed in front of the robot within its workspace.
-                  </span>
-              </div>
-                  </div>
-                  
-              </div>
-          </div>
-      </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-widescreen">
-      <div class="rows">
-        <div class="rows is-centered ">
-            <div class="row is-full-width">
-                <h2 class="title is-2"><span class="dvima">Patterns in Force&Torque measurements</span></h2>
-            </div>
-            <span style="font-size: 140%">
-              <br>
-              To identify patterns in force and torque profiles, we normalize each demonstration by its duration, converting it to a "progress domain" where 100% indicates completion. We then resample all demonstrations to 500 samples using linear interpolation and plot the mean force and torque with standard deviations for each action. This allows us to visually analyze trends.
-            </span>
-              
-            <div class="column is-centered has-text-centered">
-              <img src="figures/force_all.png" alt="Data collection setup" />
-            </div>
-          </div>
-        </div>
-    </div>
-  </section>
-
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-  
-          <h2 class="title is-2">Dataset Structure</h2>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <section class="section">
-      <div class="container is-max-widescreen">
-          <div class="rows">
-              <div class="rows is-centered ">
-                  <div class="columns">
-                    <div class="column">
-                      <span style="font-size: 140%">
-                          <br>
-                          Each trial is stored in a separate H5 file. We preserve the native measurement frequency of each sensor, which allows the user for task-specific synchronization and sampling. To facilitate easy alignment of all messages, we save the timestamps or each sensor reading.
-                      </span>
-                    </div>
-                    <div class="column has-text-centered">
-                      <div style="display: flex; justify-content: center; align-items: center;">
-                        <div id="scatterPlot"></div>
-                      </div>
-                        <img src="figures/structure_full-1.png" class="interpolation-image" alt=""
-                        style="display: block; width: 80%; margin-left: auto; margin-right: auto" />
-                    </div>    
-                  </div>
-                  
-              </div>
-          </div>
-      </div>
-  </section>
-
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       
@@ -561,6 +321,183 @@
       </div>
   </div>
 </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+    
+            <h2 class="title is-2">Data Collection Setup</h2>
+    
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-widescreen">
+        <div class="rows">
+          <div class="rows is-centered ">
+              <span style="font-size: 140%">
+                <br>
+                We collect a comprehensive range of sensory data for task demonstrations, including multi-view RGB video from two external HAMA C-600 Pro webcams and a wrist-mounted Intel RealSense D435i, as well as proprioceptive data such as joint positions, velocities, end-effector position, and gripper width. Audio is captured by three microphones, including an OSA K1T wireless mic on the robot's gripper. Interaction forces and torques are measured using a wrist-mounted 6-axis AIDIN ROBOTICS AFT200-D80-C force-torque sensor. The dataset also features an event camera, providing high-speed, low-latency motion information. For precise camera localization, we use a motion capture system with custom 3D-printed brackets and reflective markers on both the cameras and the robot's base.
+              </span>
+                
+              <div class="column is-centered has-text-centered">
+                <img src="figures/sesor_v2-1.png" alt="Data collection setup" />
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+    
+            <h2 class="title is-2">Dataset Statistics</h2>
+    
+            <!-- Scatter plot container
+            <div style="display: flex; justify-content: center; align-items: center;">
+              <div id="scatterPlot"></div>
+            </div> -->
+    
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-widescreen">
+        <div class="rows">
+          <div class="rows is-centered ">
+              <div class="row is-full-width">
+                  <h2 class="title is-2"><span class="dvima">Action Distribution</span></h2>
+              </div>
+              <span style="font-size: 140%">
+                <br>
+                The REASSEMBLE dataset includes 68 action-object pairs, or 69 with the "Idle" action, covering four actions and 17 objects. To ensure balanced performance, it contains a relatively equal number of demonstrations for each action, with a minimum of 55 for "Remove square peg 2" and a maximum of 86 for "Pick USB" and "Insert BNC." This distribution reduces performance bias toward more frequently occurring actions and supports diverse, balanced learning for downstream models.
+              </span>
+                
+              <div class="column is-centered has-text-centered">
+                <img src="figures/dataset_total.png" alt="Data collection setup" />
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-widescreen">
+        <div class="rows">
+          <div class="rows is-centered ">
+              <div class="row is-full-width">
+                  <h2 class="title is-2"><span class="dvima">Action Demonstration Success Rate</span></h2>
+              </div>
+              <span style="font-size: 140%">
+                <br>
+                The REASSEMBLE dataset contains demonstrations and labels for both successful and unsuccessful action executions. This allows learning success detectors and implementing execution monitoring pipelines.
+
+                The number of failed demonstrations per action reflects task difficulty, with complex motions leading to more failures. The "Insert" action has the highest failure rate due to its multi-step process, especially for BNC and bolt 4, which require precise alignment and rotation. Ethernet and USB insertions also fail frequently due to their directional plugs and edge placement on the task board. "Pick" failures occur when the gripper misses or drops the object, while "Remove" failures result from misalignment causing objects to jam. In contrast, "Place" has the fewest failures, though slips leading to obstruction are classified as failures.
+              </span>
+                
+              <div class="column is-centered has-text-centered">
+                <img src="figures/dataset_s_vs_us.png" alt="Data collection setup" />
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-widescreen">
+          <div class="rows">
+              <div class="rows is-centered ">
+                  <div class="row is-full-width">
+                      <h2 class="title is-2"><span class="dvima">Interaction Point Diversity</span></h2>
+                  </div>
+                  <br>
+                  <div class="columns">
+                      <div class="column has-text-centered">
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                          <div id="scatterPlot"></div>
+                        </div>
+                      </div>    
+                  <!-- <br> -->
+                  <div class="column">
+                  <span style="font-size: 140%">
+                      <br>
+                      Increasing the diversity in the interaction points of actions within a dataset enhances generalization and performance on downstream tasks. To achieve high diversity in our data, we instructed the operator to randomize the board and object poses for each trial during data collection. The approximate interaction point of all 4,551 demonstrations was determined by sampling the final end-effector position of each trial. The robot starts at the origin, facing the positive x-axis, with most objects and the board placed in front of the robot within its workspace.
+                  </span>
+              </div>
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <div class="rows">
+        <div class="rows is-centered ">
+            <div class="row is-full-width">
+                <h2 class="title is-2"><span class="dvima">Patterns in Force&Torque measurements</span></h2>
+            </div>
+            <span style="font-size: 140%">
+              <br>
+              To identify patterns in force and torque profiles, we normalize each demonstration by its duration, converting it to a "progress domain" where 100% indicates completion. We then resample all demonstrations to 500 samples using linear interpolation and plot the mean force and torque with standard deviations for each action. This allows us to visually analyze trends.
+            </span>
+              
+            <div class="column is-centered has-text-centered">
+              <img src="figures/force_all.png" alt="Data collection setup" />
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+  
+          <h2 class="title is-2">Dataset Structure</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+      <div class="container is-max-widescreen">
+          <div class="rows">
+              <div class="rows is-centered ">
+                  <div class="columns">
+                    <div class="column">
+                      <span style="font-size: 140%">
+                          <br>
+                          Each trial is stored in a separate H5 file. We preserve the native measurement frequency of each sensor, which allows the user for task-specific synchronization and sampling. To facilitate easy alignment of all messages, we save the timestamps or each sensor reading.
+                      </span>
+                    </div>
+                    <div class="column has-text-centered">
+                      <div style="display: flex; justify-content: center; align-items: center;">
+                        <div id="scatterPlot"></div>
+                      </div>
+                        <img src="figures/structure_full-1.png" class="interpolation-image" alt=""
+                        style="display: block; width: 80%; margin-left: auto; margin-right: auto" />
+                    </div>    
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+  </section>
 
   <section class="section">
     <div class="container is-max-widescreen">
