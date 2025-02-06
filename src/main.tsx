@@ -34,14 +34,14 @@ window.addEventListener('load', async () => {
         const gallery = new window.GifGallery('gifGallery');
         const gifs = [
             {
-                filename: '2025-01-11-14-04-40',
-                path: `${baseUrl}/2025-01-11-14-04-40.gif`,
-                targetUrl: `${baseUrl}/viewer.html?file=2025-01-11-14-04-40.rrd`
+                filename: '2025-01-11-11-55-48',
+                path: `${baseUrl}/2025-01-11-11-55-48.gif`,
+                targetUrl: `${baseUrl}/viewer.html?file=2025-01-11-11-55-48.rrd`
             },
             {
-                filename: '2025-01-09-15-27-49',
-                path: `${baseUrl}/2025-01-09-15-27-49.gif`,
-                targetUrl: `${baseUrl}/viewer.html?file=2025-01-09-15-27-49.rrd`
+                filename: '2025-01-13-16-57-41',
+                path: `${baseUrl}/2025-01-13-16-57-41.gif`,
+                targetUrl: `${baseUrl}/viewer.html?file=2025-01-13-16-57-41.rrd`
             }
         ];
 
