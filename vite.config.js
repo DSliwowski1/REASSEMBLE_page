@@ -1,10 +1,11 @@
 import wasm from "vite-plugin-wasm";
 import topLevelAwait from "vite-plugin-top-level-await";
 import path from 'path';
+import react from '@vitejs/plugin-react'
 
 /** @type {import("vite").UserConfig} */
 const config = {
-  plugins: [wasm(), topLevelAwait()],
+  plugins: [wasm(), topLevelAwait(), react()],
   optimizeDeps: {
     exclude: process.env.NODE_ENV === "production" ? [] : ["@rerun-io/web-viewer"],
   },
